@@ -1,0 +1,46 @@
+import React, { useEffect, useState, useSyncExternalStore } from "react";
+import axios from "axios";
+const Home =()=>{
+
+    const [user,setUser]=useState([]);
+    useEffect(()=>{
+        loadUser();
+    },[]);
+
+    const loadUser =async ()=>{
+                    var result =await axios.get(`http://localhost:3003/users`);
+                    console.log(result);
+                    setUser(result.data);
+    }
+
+    return(
+        <div className="container">
+            <div className="py-4">
+                <h1>Home Page</h1>
+                <table className="table">
+  <thead className="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Username</th>
+      <th scope="col">Email</th>
+    </tr>
+  </thead>
+  <tbody>
+   {user.map((u,index)=>(
+<tr>
+    <th scope="row">{index+1}</th>
+    <td>{u.name}</td>
+    <td>{u.username}</td>
+    <td>{u.email}</td>
+</tr>
+
+   ))}
+  </tbody>
+</table>
+            </div>
+        </div>
+    );
+}
+
+export default Home
