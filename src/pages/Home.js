@@ -1,5 +1,7 @@
 import React, { useEffect, useState, useSyncExternalStore } from "react";
 import axios from "axios";
+import { Link,NavLink } from "react-router-dom";
+
 const Home =()=>{
 
     const [user,setUser]=useState([]);
@@ -13,6 +15,11 @@ const Home =()=>{
                     setUser(result.data);
     }
 
+    const deleteUser = async id =>{
+        await axios.delete(`http://localhost:3003/users/${id}`);
+loadUser();
+    }
+
     return(
         <div className="container">
             <div className="py-4">
@@ -24,6 +31,7 @@ const Home =()=>{
       <th scope="col">Name</th>
       <th scope="col">Username</th>
       <th scope="col">Email</th>
+     <th scope="col">Action</th>
     </tr>
   </thead>
   <tbody>
@@ -33,6 +41,16 @@ const Home =()=>{
     <td>{u.name}</td>
     <td>{u.username}</td>
     <td>{u.email}</td>
+ <td><Link to={`users/${u.id}`}  className="btn btn-primary mr-2">
+ View
+  </Link>
+  <Link to={`users/edit/${u.id}`} className="btn btn-outline-primary mr-2">
+ Edit
+  </Link>
+  <button onClick={()=>deleteUser(u.id)} className="btn btn-danger">
+ Delete
+  </button>
+  </td>
 </tr>
 
    ))}
