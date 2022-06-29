@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate,useParams } from 'react-router-dom';
-
+import {Link} from "react-router-dom";
 const User =()=>{
     let navigate = useNavigate();
   const  [user,setUser] =useState({
@@ -17,7 +17,6 @@ const User =()=>{
 const onSubmit = async e =>{
 e.preventDefault();
 
-
 navigate("/");
 
 }
@@ -30,7 +29,7 @@ useEffect(()=>{
   loadUser();
 },[]);
     return(
-        <form onSubmit={e =>onSubmit(e)}>
+        <>
         <div class="form-group">
           <label for="name">Name</label>
           <input type="text" className="form-control form-control-lg" name="name" id="name" value={name}
@@ -53,9 +52,9 @@ useEffect(()=>{
           <input type="text" className="form-control form-control-lg" name="website" id="website"    value={website} ></input>
         </div>
         <div class="btn-group">
-        <button type="submit" className="btn btn-warning">Go to List</button>
+        <Link  to="/" className='btn btn-primary'>Go to List</Link>
         </div>
-      </form>
+      </>
 
     );
 }
