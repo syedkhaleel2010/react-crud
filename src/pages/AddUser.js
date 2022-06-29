@@ -26,28 +26,28 @@ navigate("/");
 }
     return(
         <form onSubmit={e =>onSubmit(e)}>
-        <div class="form-group">
-          <label for="name">Name</label>
+        <div className="form-group">
+          <label >Name</label>
           <input type="text" className="form-control form-control-lg" name="name" id="name" value={name}
           onChange={e=>{onInputChange(e)}}  placeholder="Enter name"></input>
         </div>
-        <div class="form-group">
-          <label for="username">Username</label>
+        <div className="form-group">
+          <label >Username</label>
           <input type="text" className="form-control form-control-lg" name="username" id="username"  onChange={e=>{onInputChange(e)}}  value={username} placeholder="Enter username"></input>
         </div>
-        <div class="form-group">
-          <label for="email">Email</label>
+        <div className="form-group">
+          <label >Email</label>
           <input type="text" className="form-control form-control-lg" name="email" id="email"  onChange={e=>{onInputChange(e)}}  value={email} placeholder="Enter email"></input>
         </div>
-        <div class="form-group">
-          <label for="phone">Phone</label>
+        <div className="form-group">
+          <label >Phone</label>
           <input type="text" className="form-control form-control-lg" name="phone" id="phone"  onChange={e=>{onInputChange(e)}}  value={phone} placeholder="Enter phone"></input>
         </div>
-        <div class="form-group">
-          <label for="website">Website</label>
+        <div className="form-group">
+          <label >Website</label>
           <input type="text" className="form-control form-control-lg" name="website" id="website"  onChange={e=>{onInputChange(e)}}  value={website} placeholder="Enter website"></input>
         </div>
-        <div class="btn-group">
+        <div className="btn-group">
         <button type="submit" className="btn btn-primary">Add User</button>
         </div>
       </form>

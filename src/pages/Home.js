@@ -23,7 +23,7 @@ loadUser();
     return(
         <div className="container">
             <div className="py-4">
-                <h1>Home Page</h1>
+                <h1>Users List</h1>
                 <table className="table">
   <thead className="thead-dark">
     <tr>
@@ -36,20 +36,14 @@ loadUser();
   </thead>
   <tbody>
    {user.map((u,index)=>(
-<tr>
+<tr key={index+1}>
     <th scope="row">{index+1}</th>
     <td>{u.name}</td>
     <td>{u.username}</td>
     <td>{u.email}</td>
- <td><Link to={`users/${u.id}`}  className="btn btn-primary mr-2">
- View
-  </Link>
-  <Link to={`users/edit/${u.id}`} className="btn btn-outline-primary mr-2">
- Edit
-  </Link>
-  <button onClick={()=>deleteUser(u.id)} className="btn btn-danger">
- Delete
-  </button>
+ <td><Link to={`users/${u.id}`}  className="btn btn-primary m-2"> View </Link>
+  <Link to={`users/edit/${u.id}`} className="btn btn-outline-primary m-2"> Edit  </Link>
+  <button onClick={()=>deleteUser(u.id)} className="btn btn-danger"> Delete  </button>
   </td>
 </tr>
 

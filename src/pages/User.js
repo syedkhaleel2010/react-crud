@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useReducer, useState } from "react";
 import { useNavigate,useParams } from 'react-router-dom';
 import {Link} from "react-router-dom";
 const User =()=>{
@@ -30,30 +30,17 @@ useEffect(()=>{
 },[]);
     return(
         <>
-        <div class="form-group">
-          <label for="name">Name</label>
-          <input type="text" className="form-control form-control-lg" name="name" id="name" value={name}
-          ></input>
-        </div>
-        <div class="form-group">
-          <label for="username">Username</label>
-          <input type="text" className="form-control form-control-lg" name="username" id="username"    value={username} ></input>
-        </div>
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input type="text" className="form-control form-control-lg" name="email" id="email"    value={email} ></input>
-        </div>
-        <div class="form-group">
-          <label for="phone">Phone</label>
-          <input type="text" className="form-control form-control-lg" name="phone" id="phone"   value={phone} ></input>
-        </div>
-        <div class="form-group">
-          <label for="website">Website</label>
-          <input type="text" className="form-control form-control-lg" name="website" id="website"    value={website} ></input>
-        </div>
-        <div class="btn-group">
+        <div className="btn-group">
         <Link  to="/" className='btn btn-primary'>Go to List</Link>
         </div>
+      <ul className="list-group">
+  <li className="list-group-item">name     : {user.name}</li>
+  <li className="list-group-item">username : {user.username}</li>
+  <li className="list-group-item">email    : {user.email}</li>
+  <li className="list-group-item">phone    : {user.phone}</li>
+  <li className="list-group-item">website  : {user.website}</li>
+</ul>
+        
       </>
 
     );
