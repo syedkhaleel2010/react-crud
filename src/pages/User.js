@@ -30,7 +30,7 @@ useEffect(()=>{
 },[]);
     return(
         <>
-        <div className="btn-group">
+        <div className="btn-group m-2">
         <Link  to="/" className='btn btn-primary'>Go to List</Link>
         </div>
       <ul className="list-group">
